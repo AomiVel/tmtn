@@ -1,8 +1,8 @@
-import discord,asyncio,inspect,os;from discord.ext import commands;
+import discord,asyncio,inspect,os;
 def print_line():print(inspect.currentframe().f_back.f_lineno)
-b=os.environ.get('TOKEN');c=commands.Bot(command_prefix='t.',intents=discord.Intents.all())
-@c.listen()
-async def on_ready():print("Ready: {0.user.name} (ID: {0.user.id})".format(c))
+b=os.environ.get('TOKEN');c=discord.Client(intents=discord.Intents.all())
+@c.event
+async def on_ready():print("Ready: {0.name} (ID: {0.id})".format(c.user))
 def d(g):
  h={}
  for i in(g):
@@ -19,7 +19,7 @@ def f(j):
   elif(len(m)==4):l['c']=True
  return(l)
 q={'a':'<:two_image:922470315567775754>','b':'<:three_image:922470315332866058>','c':'<:four_image:922470315278336020>','d':'<:playable:922473752422400010>'}
-@c.listen()
+@c.event
 async def on_message(n):
  if(len(n.embeds)==0):
   try:_,a=await(c.wait_for('message_edit',check=lambda _,a:a.id==n.id,timeout=5));n=a
