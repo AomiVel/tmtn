@@ -2,7 +2,9 @@ import discord,asyncio,inspect,os;
 def print_line():print(inspect.currentframe().f_back.f_lineno)
 b=os.environ.get('TOKEN');c=discord.Client(intents=discord.Intents.all())
 @c.event
-async def on_ready():print("Ready: {0.name} (ID: {0.id})".format(c.user))
+async def on_ready():
+ print(len(c.guilds))
+ print("Ready: {0.name} (ID: {0.id})".format(c.user))
 def d(g):
  h={}
  for i in(g):
@@ -28,4 +30,7 @@ async def on_message(n):
  o=f(n.embeds)
  for(p,r)in(o.items()):
   if(r):await(n.add_reaction(q[p]))
+@c.event
+async def on_guild_join(_):
+ print(len(c.guilds))
 c.run(b)
