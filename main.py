@@ -29,7 +29,9 @@ async def on_message(n):
   except(Exception)as e:return(print(e))
  o=f(n.embeds)
  for(p,r)in(o.items()):
-  if(r):await(n.add_reaction(q[p]))
+  if(r):
+   await(n.add_reaction(q[p]))
+   await(asyncio.sleep(0.5))
 @c.event
 async def on_guild_join(_):
  print(len(c.guilds))
