@@ -8,6 +8,7 @@ async def on_ready():
 def d(g):
  h={}
  for i in(g):
+  if'twitter.com'not in(i.url):continue
   if(i.url)in(h.keys()):h[i.url].append(i)
   else:h[i.url]=[i]
  return(h)
